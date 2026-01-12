@@ -2,7 +2,7 @@
 
 本项目现已得到中山大学计算机学院支持。我们正在努力增加 feature ，满足本院毕业设计的要求，并争取进一步完善，成为中大官方 $\LaTeX$ 毕设模板。Demo 与源码可在 [releases](https://github.com/SYSU-SCC/sysu-thesis/releases) 页面下载。
 
-**本模板支持本硕博模板切换，其中本科生模板为计算机学院官方模板，硕博模板正在通过学院审核，使用前请注意。**
+**本模板在 v2.0 版本进行开始（[#114](https://github.com/SYSU-SCC/sysu-thesis/pull/114)）支持本硕博切换，其中本科生模板为计算机学院官方模板，硕博模板正在通过学院审核。使用前请注意，2.0 版本代码进行了重构，与之前的格式可能有细微差别，如遇学校格式审核问题，请回退至 [v1.2](https://github.com/SYSU-SCC/sysu-thesis/releases/tag/v1.2.20241211) 。**
 
 **诚挚邀请广大校友加入本项目维护，详见 [#67](https://github.com/SYSU-SCC/sysu-thesis/issues/67)、[#105](https://github.com/SYSU-SCC/sysu-thesis/pull/105)。希望加入 collaborator 团队的同学可联系 [@wu-kan](https://github.com/wu-kan)。**
 
