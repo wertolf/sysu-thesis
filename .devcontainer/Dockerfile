@@ -10,7 +10,8 @@ RUN echo "deb http://mirror.sysu.edu.cn/debian/ forky main contrib non-free" > /
     && apt-get install -y --no-install-recommends ttf-mscorefonts-installer make fonts-arphic-ukai fonts-noto-cjk-extra \
     && fc-cache \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && touch /.sysu-thesis.devcontainer
 
 ENV SHELL /bin/bash
 
