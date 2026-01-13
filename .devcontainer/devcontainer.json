@@ -1,6 +1,9 @@
 {
     "build": {
-        "dockerfile": "Dockerfile"
+        "dockerfile": "Dockerfile",
+        "options": [
+            "--network=host"
+        ]
     },
     "customizations": {
         "vscode": {
