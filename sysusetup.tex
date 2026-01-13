@@ -24,9 +24,13 @@
   % 数学字体
   % math-style           = GB,  % 可选：GB, TeX, ISO
   math-font            = xits,  % 可选：stix, xits, libertinus
-  cjk-font             = noto,  % 强制使用 Noto CJK 字体，解决缺字问题
   cite-style           = super,
 }
+
+% 自动检测 Docker 环境并替换 CJK 字体为字库更全的，但对 Windows 和 Mac 维持原来的 fandol
+\IfFileExists{/.dockerenv}{
+  \sysusetup{cjk-font = noto}
+}{}
 
 %\renewcommand{\thefigure}{\thechapter-\arabic{figure}}% 将正文和目录的图片标题由x.x改为x-x，慎用
 %\renewcommand{\thetable}{\arabic{chapter}-\arabic{table}}% 将正文和目录的表格标题由x.x改为x-x，慎用

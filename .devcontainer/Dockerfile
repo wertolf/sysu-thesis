@@ -1,8 +1,11 @@
 FROM texlive/texlive:TL2024-historic
 
-# 使用sid以简化配置
-RUN echo "deb http://mirrors.ustc.edu.cn/debian/ sid main contrib non-free" > /etc/apt/sources.list \
-    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ sid main contrib non-free" >> /etc/apt/sources.list \
+RUN echo "deb http://mirror.sysu.edu.cn/debian/ forky main contrib non-free" > /etc/apt/sources.list \
+    && echo "deb http://mirrors.ustc.edu.cn/debian/ forky main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian/ forky main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirror.sysu.edu.cn/debian-security/ forky-security main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.ustc.edu.cn/debian-security/ forky-security main contrib non-free" >> /etc/apt/sources.list \
+    && echo "deb http://mirrors.tuna.tsinghua.edu.cn/debian-security/ forky-security main contrib non-free" >> /etc/apt/sources.list \
     && apt-get update -y \
     && apt-get install -y --no-install-recommends ttf-mscorefonts-installer make fonts-arphic-ukai fonts-noto-cjk-extra \
     && fc-cache \
