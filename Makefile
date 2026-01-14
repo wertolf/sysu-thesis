@@ -10,13 +10,17 @@ LATEXMK = latexmk -xelatex
 # 	  | egrep -o "v[0-9.]+")
 TEXMF = $(shell kpsewhich --var-value TEXMFHOME)
 
-.PHONY : main cls doc clean all install distclean zip FORCE_MAKE
+.PHONY : main cls doc clean all install distclean zip FORCE_MAKE help
+.DEFAULT_GOAL := help
 
-main : $(MAIN).pdf
+help: ## 显示本 Makefile 常用命令帮助
+	@grep -E '^[a-zA-Z_-]+ :.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = " :.*?## "}; {printf "\033[36m%-15s\033[0m %s\n", $$1, $$2}'
 
-pre : $(PRE).pdf
+main : $(MAIN).pdf ## 编译论文正文 (main.pdf)
 
-all : main pre doc
+pre : $(PRE).pdf ## 编译答辩展示用ppt文档 (pre.pdf)
+
+all : main pre doc ## 编译所有文档 (正文、答辩ppt、说明文档)
 
 cls : $(CLSFILES) $(BSTFILES)
 
@@ -31,10 +35,10 @@ $(PRE).pdf : pre.tex FORCE_MAKE
 $(NAME)-guide.pdf : $(NAME)-guide.tex FORCE_MAKE
 	$(LATEXMK) $<
 
-clean : FORCE_MAKE
+clean : FORCE_MAKE ## 清理编译生成的中间文件
 	$(LATEXMK) -c main.tex pre.tex $(NAME)-guide.tex
 
-cleanall :
+cleanall : ## 清理所有生成的文件（包括 PDF）
 	$(LATEXMK) -C main.tex pre.tex $(NAME)-guide.tex
 
 install : cls doc
